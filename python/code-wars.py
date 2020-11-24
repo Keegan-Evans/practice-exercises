@@ -3,8 +3,6 @@ def tower_builder(n_floors):
     building_half = (n_floors - 1) 
     floor_blank = lambda flr: " " * (building_half - flr)
     floor_build = lambda flr: "*" * flr 
-    center_column_position = building_half + 1
-
 
     floors = []
     for i in range(n_floors):
@@ -36,3 +34,12 @@ def bin2num_comp(arr):
 
 def binary_array_to_number_best(arr):
   return int("".join(map(str, arr)), 2)
+
+# https://www.codewars.com/kata/53af2b8861023f1d88000832/train/python
+# Are you playing banjo?
+
+def areYouPlayingBanjo(name):
+    return "{} {}".format(
+        name,
+        "plays banjo" if name.lower().startswith("r") else "does not play banjo"
+    )
