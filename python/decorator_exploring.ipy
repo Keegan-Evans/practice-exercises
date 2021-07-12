@@ -1,0 +1,615 @@
+# coding: utf-8
+clear
+@print(x)
+def bar(a):
+    print(a)
+    
+@foo
+def bar(a):
+    print(a)
+    
+def foo(x):
+    print('before %s' % x)
+    
+@foo(x)
+def bar(a):
+    print(a)
+    
+@foo
+def bar(a):
+    print(a)
+    
+bar
+bar('pretty')
+zed = foo('able')(bar('prett'))
+bar('egg')
+foo('egg')
+def dub(x):
+    return x * 2
+     
+zed = dub('egg')(bar)
+zed = dub('egg')
+zed
+bar
+print(bar)
+bar()
+g = lambda(x: x + 1)  
+clear
+g = lambda x: x + 1  
+g(3)
+@gum
+def nerd(x):
+    x + 2
+    
+@g
+def nerd(x):
+    x + 2
+    
+@gum
+def nerd(x):
+    x + 2
+    
+clear
+@dec
+def F(arg):
+    return arg
+    
+def inc(x):
+    return x + 1
+    
+@inc
+def f(y):
+    return y
+    
+def inc(F):
+    print('before')
+    F()
+    print('after')
+    
+def inc(F):
+    print('before')
+    F()
+    print('after')
+    return F
+    
+@inc
+def f(y):
+    return y
+    
+def inc(F):
+    print('before')
+    F
+    print('after')
+    return F
+    
+@inc
+def f(y):
+    return y
+    
+f(3)
+def inc(F):
+    print('before')
+    F + 3
+    print('after')
+ 
+    
+f(3)
+@inc
+def f(y):
+    return y
+    
+clear
+def anise(q):
+    return 3 * q
+    
+def cinnamon(p):
+    return p + 1
+    
+corriander = anise(cinnamon)
+def dec1(F):
+    def wrapper(*args):
+        F(args * 2)
+       
+        
+def dec1(F):
+    def wrapper(*args):
+        F(args * 2)
+       
+    return wrapper
+    
+@dec1
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+def dec1(F):
+    def wrapper(args):
+        F(arg * 2)
+       
+    return wrapper
+    
+@dec1
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+def dec1(F):
+    def wrapper(y):
+        F(y * 2)
+       
+    return wrapper
+    
+@dec1
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+print(fun1(2))
+def dec1(F):
+    def wrapper(*args):
+        F(args) * 2
+    return wrapper
+    
+@dec1
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+def dec1(F):
+    def wrapper(arg1):
+        return F(arg1 * 2)
+    return wrapper
+    
+    
+@dec1
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+fun1(3)
+def dec2(F):
+    def wrapper(*args, **kwargs):
+        print('what you asked for:\n')
+        return F(*args, **kwargs)
+    return wrapper
+    
+@dec2
+def fun1(x):
+    return x + 1
+    
+fun1(2)
+def dec3(F):
+    def wrapper(*args, **kwargs):
+        return F(args[0] * 2, *args, **kwargs)
+    return wrapper
+    
+@dec3
+def fun3(x):
+    return x
+    
+fun3(1)
+def dec3(F):
+    def wrapper(in_val):
+        return F(in_val * 2)
+    return wrapper
+    
+    
+@dec3
+def fun3(x):
+    return x
+    
+fun3(1)
+def odd_even_dec(F):
+    def wrapper(x):
+        if x % 2 == 0:
+            print('The input is even.')
+        else:
+            print('The input is odd.')
+        return F(x)
+    return wrapper
+     
+@odd_even_dec
+def double_odd_even(x):
+    return 2 * x
+    
+double_odd_even(3)
+@odd_even_dec
+def double_odd_even(x):
+    return 2 * x
+    
+def odd_even_dec(F):
+    def wrapper(x):
+        if x % 2 == 0:
+            print('The input is even.')
+        else:
+            print('The input is odd.')
+        out = F(x)
+        print(out)
+        print('The output is even')
+        return out
+    return wrapper
+    
+     
+@odd_even_dec
+def double_odd_even(x):
+    return 2 * x
+    
+double_odd_even(3)
+class dec1:
+    def __init--(self, func):
+        self.func = func
+class dec1:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args):
+        for x in *args:
+            print(x) 
+class dec1:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args):
+        for x in args:
+            printd(x)
+        print(self.func(args)) 
+        
+@dec1
+def add_class_dec(a, b):
+    return a + b
+    
+add_class_dec(1, 2)
+class dec1:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args):
+        for x in args:
+            print(x)
+        print(self.func(args)) 
+        
+class dec1:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args):
+        for x in args:
+            print(x)
+        print(self.func(args)) 
+        
+@dec1
+def add_class_dec(a, b):
+    
+    return a + b
+    
+add_class_dec(1, 2)
+add_class_dec(a=1, b=2)
+class dec1:
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args):
+        for x in args:
+            print(x)
+        print(self.func(*args)) 
+        
+        
+@dec1
+def add_class_dec(a, b):
+    
+    return a + b
+    
+add_class_dec(a=1, b=2)
+add_class_dec(2, 4)
+add_class_dec(2, 4, 8, 8)
+@dec1
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+@dec1
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(3, 5, 19, 23)
+class C:
+    @dec1
+    def method(self, x, y):
+        if x > y:
+            print(x)
+        else:
+            print(y)
+            
+B = C()
+B.method(3, 4)
+B.method(x=3, y=4)
+def dec_both(F):
+    def wrapper(*args):
+        for i, x in enumerate(args, 1):
+            print('Argument %s is %s' % (i, x))
+            F(*args)
+        return wrapper
+        
+@dec_both
+def both_func(x, y):
+    return 2 * x + 2 * y
+     
+both_func(3, 4)
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+both_func(3, 4)
+def dec_both(F):
+    def wrapper(*args):
+        for i, x in enumerate(args, 1):
+            print('Argument %s is %s' % (i, x))
+        F(*args)
+        return wrapper
+        
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(3, 5, 14, 2)
+def dec_both(F):
+    def wrapper(*args):
+        print('did it work?')
+        F(*args)
+        print('yep')
+    return wrapper
+    
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 3, 42)
+b = add_class_dec(3, 2, 52, 13, 812)
+b
+print(b)
+def dec_both(F):
+    def wrapper(*args):
+        for i, x in enumerate(args, 1):
+            print('Argument %s is %s' % (i, x))
+        F(*args)
+        return wrapper
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 3, 42)
+add_class_dec(2, 3, 42) -v
+total = 0
+total += 5
+total
+total = 0
+def dec_both(F):
+    def wrapper(*args):
+        for x in args:
+            print('Argument %s' % (x))
+        F(*args)
+        return wrapper
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 3, 42)
+def dec_both(F):
+    def wrapper(*args):
+        #for x in args:
+         #   print('Argument %s' % (x))
+        F(*args)
+        return wrapper
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 3, 42)
+def dec4(F):
+    def wrapper(*args):
+        F(*args)
+    return wrapper
+    
+@dec4
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 3, 42)
+g = add_class_dec(2, 3, 4)
+print(g)
+def dec4(F):
+    def wrapper(*args):
+        return F(*args)
+    return wrapper
+    
+@dec4
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+g = add_class_dec(2, 3, 4)
+g
+@dec
+def a3dd_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+def dec_both(F):
+    def wrapper(*args):
+        for x in args:
+            print('Argument %s' % (x))
+        return F(*args)
+    return wrapper
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 5, 7, 1)
+def dec_both(F):
+    def wrapper(*args):
+        for i, x in enumerate(args, 1):
+            print('Argument %s is %s' % (i, x))
+        return F(*args)
+    return wrapper
+        
+@dec_both
+def add_class_dec(*args):
+    total = 0
+    for x in args:
+        total += x
+    return total
+    
+    
+add_class_dec(2, 5, 7, 1)
+class C:
+    @dec_both
+    def find_highest(*args):
+        if count(args) = 1:
+            return args[0]
+class C:
+    @dec_both
+    def find_highest(*args):
+        if count(args) == 1:
+            return args[0]
+        elif args[0] > args[1]:
+            find_highest(args[0], args[2:])
+        else:
+            find_highest(args[1:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(*args):
+        if args[1:] is None:
+            return args[0]
+        elif args[0] > args[1]:
+            find_highest(args[0], args[2:])
+        else:
+            find_highest(args[1:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(*args):
+        if args[1:] is None:
+            return args[0]
+        elif int(args[0]) > int(args[1]):
+            find_highest(args[0], args[2:])
+        else:
+            find_highest(args[1:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(*args):
+        if args[2:] is None:
+            return args[0]
+        elif args[1] > args[2]:
+            find_highest(args[1], args[3:])
+        else:
+            find_highest(args[2:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(self, *args):
+        if args[2:] is None:
+            return args[0]
+        elif args[1] > args[2]:
+            self.find_highest(args[1], args[3:])
+        else:
+            self.find_highest(args[2:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(self, *args):
+        if args[2:] is None:
+            return args[1]
+        elif args[1] > args[2]:
+            self.find_highest(args[1], args[3:])
+        else:
+            self.find_highest(args[2:])
+            
+a = ['a']
+if a[1] is None:
+    print('good')
+    
+len(a)
+class C:
+    @dec_both
+    def find_highest(self, *args):
+        if len(args) == 2:
+            return args[1]
+        elif args[1] > args[2]:
+            self.find_highest(args[1], args[3:])
+        else:
+            self.find_highest(args[2:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+class C:
+    @dec_both
+    def find_highest(self, *args):
+        if len(args) == 2:
+            return args[1]
+        elif args[1] > args[2]:
+            print(args[1], args[2])
+            self.find_highest(args[1], args[3:])
+        else:
+            print('else case %s' % (args[1]))
+            self.find_highest(args[2:])
+            
+X = C()
+X.find_highest(3, 4, 7, 5, 12, 22, 9)
+%save -r /Users/keeganevans/repo/practice-exercises/python/decorator_exploring 1-169
