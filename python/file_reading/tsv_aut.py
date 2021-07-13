@@ -60,6 +60,10 @@ class Groker(_ConcretePath):
                 if prev_line[0] == self._comment_char and line[0] != self._comment_char:
                     self.first_data_line = i
                     self.feature_labels = prev_line.split(sep = self._sep)
+                    #self.feature_labels = self._strip_comment_characters(
+                    #    self.feature_labels
+                    #    )
+                    self._strip_comment_characters(self.feature_labels)
                 elif line[0] != self._comment_char:
                     prev_line = line
                     continue
@@ -69,8 +73,13 @@ class Groker(_ConcretePath):
 
         print(self.first_data_line)
         print(self.feature_labels)
-    #def _extract_metadata(self):
-    #    with self.open('w') as fw:
+
+    # implement this as a descriptor/property so that it automatically does
+    # this when you set the feature labels
+    def _strip_comment_characters(self, feats):
+        for i, element in enumerate(feats, 0):
+            feats[i] = element.strip(self._comment_char)
+
 
 
 
@@ -81,11 +90,17 @@ if __name__ == '__main__':
     b.print_contents()
 
     x = Bald( path='tests/data/sample_csv.csv')
-    
+
     with x.open() as fh:
         for line in fh:
             print(line)
     x.print_contents()
+    b._get_feature_labels_and_data_index()
+    y, z = b.first_data_line, b.feature_labels
+    print('Index of first dataline: %s' % (y))
+    print('All feature columns:')
+    for feature in z:
+        print(feature)
 # sketched logic for data lines
 #prev_line = '#'
 #    first_data_line = int()
