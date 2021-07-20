@@ -30,8 +30,16 @@ class Holder:
                                     semantic_type)
 
                 self.semantic_types[semantic_type][2].append(validator)
-            return validator
 
+        return decorator
+
+    def reg_val_simple(self, sem_types: list):
+
+        def decorator(validator):
+
+            self.validators[validator.__name__] = ValidatorRecord(
+                validator=validator, holder=self, sem_types=sem_types)
+            return validator
         return decorator
 
 if __name__ == '__main__':
@@ -40,10 +48,8 @@ if __name__ == '__main__':
 
     example_list = ['a', 'b', 'c']
 
-    for exp in example_list:
-        g.reg_sem(exp)
 
-    @g.reg_val(example_list)
+    @g.reg_val_simple(example_list)
     def check_even(in_list: list):
         for each in in_list:
             if each % 2 == 0:
@@ -60,3 +66,12 @@ if __name__ == '__main__':
 
     print(even_checked_expected_good)
     print(even_checked_expected_bad)
+    # registering the validators to the semantic types instead
+    print('*' * 20)
+    print('Adding to the semantic type instead')
+
+    for exp in example_list:
+        g.reg_sem(exp)
+
+    for thing in g.__dict__:
+        print(thing + ':' + str(g.__dict__[thing]))
