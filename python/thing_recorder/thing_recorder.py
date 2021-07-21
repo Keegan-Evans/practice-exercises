@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
 
     @g.reg_val_simple(example_list)
-    def check_even(in_list: list):
+    def check_even_simple(in_list: list):
         for each in in_list:
             if each % 2 == 0:
                 continue
@@ -61,8 +61,8 @@ if __name__ == '__main__':
 
     print(g.__dict__)
 
-    even_checked_expected_good = g.validators['check_even'][0]([2, 4, 6])
-    even_checked_expected_bad = g.validators['check_even'][0]([0, 3, 5])
+    even_checked_expected_good = g.validators['check_even_simple'][0]([2, 4, 6])
+    even_checked_expected_bad = g.validators['check_even_simple'][0]([0, 3, 5])
 
     print(even_checked_expected_good)
     print(even_checked_expected_bad)
@@ -74,4 +74,18 @@ if __name__ == '__main__':
         g.reg_sem(exp)
 
     for thing in g.__dict__:
-        print(thing + ':' + str(g.__dict__[thing]))
+        print(thing + ' : ' + str(g.__dict__[thing]))
+
+
+    @g.reg_val(example_list)
+    def check_even(in_list: list):
+        for each in in_list:
+            if each % 2 == 0:
+                continue
+            else:
+                return False
+
+        return True
+    
+    for sem_type in g.semantic_types:
+        print(sem_type + ' : ' + str(g.semantic_types[sem_type]))
