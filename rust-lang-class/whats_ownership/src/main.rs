@@ -1,17 +1,39 @@
 #![allow(unused)]
 
 fn main() {
-    let s1 = String::from("hello");
-
-    let (s2, len) = calculate_length(s1);
-
-    println!("The length of '{}' is {}.", s2, len);
+}
+fn dangling_reference_danger() {
+    let reference_to_nothing = dangle();
 }
 
-fn calculate_length(s: String) -> (String, usize) {
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
+}
+    
+fn first_use_of_ref() {
+    let mut s = String::from("hello");
+
+    let len = calculate_length(&s);
+
+    println!("The length of '{}' is {}.", s, len);
+    
+    change(&mut s);
+
+    let len = calculate_length(&s);
+
+    println!("The length of '{}' is {}.", s, len);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
+fn calculate_length(s: &String) -> usize {
     let length = s.len();
 
-    (s, length)
+    length
 }
 
 fn give_and_give_and_take() {
