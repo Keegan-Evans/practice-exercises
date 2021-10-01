@@ -1,0 +1,51 @@
+html {
+    font-family: "Gemunu Libre";
+    /*background-image: linear-gradient(to left, #ffaaff, #004f4f);*/
+    background-color: grey;
+}
+
+body {
+    width: 600px;
+    margin: 30px auto;
+    padding: 20px 90px 90px 90px;
+    background-color: #ffffff;
+    border: 5px solid black;
+}
+
+.cryptic-description {
+    padding: 1.5rem;
+    border: 0.3px dashed black;
+    background-image: linear-gradient(to right, #ff0000, #00ffff);
+    filter: drop-shadow(0 0 10px yellow);
+}
+
+h1 {
+    color: blue;
+    font-size: 35px;
+    text-align: center;
+    filter: drop-shadow(10px 5px 0.5rem #000000);
+}
+
+p {
+    font-size: 15px;
+    color: black;
+    /*border: 1px dashed black;*/
+}
+
+p, li {
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+a {
+    color: green;
+    filter: drop-shadow(0 0 0.75rem white);
+}
+
+a:hover {
+    border: 2px solid pink;
+}
+
+/*img {
+    filter: drop-shadow(0 0 3.75rem crimson);
+}*/
