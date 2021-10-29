@@ -101,26 +101,43 @@
 
 // Second Time
 fn main() {
-    run_largest();
+    run_expoint();
+}
+
+
+fn run_expoint() {
+    let p = ExPoint { x: 3, y: 5 };
+    println!("p.x = {}", p.x());
+}
+struct ExPoint<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> ExPoint<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
 }
 
 fn run_generic_largest() {
     
     let number_list = vec![34, 50, 25, 65];
 
-    generic_largest(&number_list);
+    //generic_largest(&number_list);
 }
 
-fn generic_largest<T>(list: &[T]) -> T {
-    let mut largest = list[0];
-
-    for &item in list.iter() {
-        if item > largest {
-            largest = item;
-        }
-    }
-    largest
-}
+//fn generic_largest<T: std::cmp::PartialOrd>(list: &[T]) -> T {
+//    let mut largest = &list[0];
+//
+//    for &item in list.iter() {
+//        if &item > largest {
+//            largest = &item;
+//        }
+//    }
+//
+//    largest.as
+//}
 
 fn run_largest() {
     let number_list = vec![34, 50, 25, 65];
